@@ -41,7 +41,7 @@
 5. STOP
 ```
 
-## Print grade obtained by student applying following rules
+## 4. Print grade obtained by student applying following rules
 ### Rules
 | Marks | Grade |
 | --- | --- |
@@ -68,4 +68,12 @@
 5. STOP
 ```
 
-## Find sum of first N natural numbers
+## 5. Find sum of first N natural numbers
+```
+1. START
+2. PRINT "Enter a number: "
+3. INPUT n
+4. s <- n * (n+1) / 2
+5. PRINT s
+6. STOP
+```
