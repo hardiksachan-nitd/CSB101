@@ -1,0 +1,32 @@
+# Write algorithms for the following
+
+## Swap two values
+```
+1. START
+2. PRINT "Enter first number: "
+3. INPUT a
+4. PRINT "Enter second number: "
+5. INPUT b
+6. t <- a
+7. a <- b
+8. b <- t
+9. PRINT a and b
+10. STOP
+```
+
+
+## Find larger of two numbers
+
+## Find Number is odd or even
+
+## Print grade obtained by student applying following rules
+### Rules
+| Marks | Grade |
+| --- | --- |
+|  > 75 | O |
+| 60-75 | A |
+| 50-60 | B |
+| 40-50 | C |
+|  < 40 | D |
+
+## Find sum of first N natural numbers
