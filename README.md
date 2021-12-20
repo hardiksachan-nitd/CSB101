@@ -8,3 +8,15 @@ This repository contains all the notes, assignments, and lab work done in **CSB1
 
 ### 20/12/2021
 - Algorithm Examples
+
+## Author
+
+**Hardik Sachan**
+
+- [Github](https://github.com/hardiksachan)
+- [Twitter](https://twitter.com/hardik__sachan)
+- [LinkedIn](https://www.linkedin.com/in/hardik-sachan/)
+
+## 🤝 Support
+
+Give a ⭐️ if you like this project!
