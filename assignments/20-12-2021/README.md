@@ -1,6 +1,6 @@
 # Write algorithms for the following
 
-## Swap two values
+## 1. Swap two values
 ```
 1. START
 2. PRINT "Enter first number: "
@@ -15,7 +15,19 @@
 ```
 
 
-## Find larger of two numbers
+## 2. Find larger of two numbers
+```
+1. START
+2. PRINT "Enter first number: "
+3. INPUT a
+4. PRINT "Enter second number: "
+5. INPUT b
+6. IF a > b THEN
+        PRINT "larger: a"
+   ELSE
+        PRINT "larger: b" 
+7. STOP
+```
 
 ## Find Number is odd or even
 
