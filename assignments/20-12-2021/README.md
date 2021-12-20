@@ -1,6 +1,7 @@
 # Write algorithms for the following
 
 ## 1. Swap two values
+[code](swap.c)
 ```
 1. START
 2. PRINT "Enter first number: "
@@ -16,6 +17,8 @@
 
 
 ## 2. Find larger of two numbers
+[code](larger.c)
+
 ```
 1. START
 2. PRINT "Enter first number: "
@@ -30,6 +33,8 @@
 ```
 
 ## 3. Find Number is odd or even
+[code](oddeven.c)
+
 ```
 1. START
 2. PRINT "Enter a number: "
@@ -51,6 +56,7 @@
 | 40-50 | C |
 |  < 40 | D |
 
+[code](grade.c)
 ```
 1. START
 2. PRINT "Enter your marks: "
@@ -69,6 +75,7 @@
 ```
 
 ## 5. Find sum of first N natural numbers
+[code](sumn.c)
 ```
 1. START
 2. PRINT "Enter a number: "
