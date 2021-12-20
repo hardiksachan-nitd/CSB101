@@ -51,4 +51,21 @@
 | 40-50 | C |
 |  < 40 | D |
 
+```
+1. START
+2. PRINT "Enter your marks: "
+3. INPUT marks
+4. IF marks > 75
+        PRINT "O"
+    ELSE IF marks > 60
+        PRINT "A"
+    ELSE IF marks > 50
+        PRINT "B"
+    ELSE IF marks > 40
+        PRINT "C"
+    ELSE
+        PRINT "D"
+5. STOP
+```
+
 ## Find sum of first N natural numbers
