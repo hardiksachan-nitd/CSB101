@@ -29,7 +29,17 @@
 7. STOP
 ```
 
-## Find Number is odd or even
+## 3. Find Number is odd or even
+```
+1. START
+2. PRINT "Enter a number: "
+3. INPUT n
+4. IF n % 2 EQUALS 0 THEN
+        PRINT "even"
+   ELSE
+        PRINT "odd" 
+5. STOP
+```
 
 ## Print grade obtained by student applying following rules
 ### Rules
