@@ -7,8 +7,8 @@ with percentage score secured. */
 int main()
 {
     int m1, m2, m3, m4, m5,
-        rollno,
-        phone;
+        rollno;
+    char phone[10];
     char name[30];
 
     printf("Enter your name: ");
@@ -18,7 +18,7 @@ int main()
     scanf("%d", &rollno);
 
     printf("Enter your phone no: ");
-    scanf("%d", &phone);
+    scanf("%s", phone);
 
     printf("Enter your marks in labs 1 through 5: ");
     scanf("%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5);
