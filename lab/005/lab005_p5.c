@@ -1,4 +1,4 @@
-// Determine whether a person is eligible to vote
+// Determine whether a number is odd or even
 
 #include <stdio.h>
 
