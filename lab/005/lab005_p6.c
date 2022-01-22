@@ -7,6 +7,9 @@
 const int LINE_LENGTH = 80;
 const int PROMT_SIZE = 59;
 const int STR_LEN = 50;
+const int W_COL_1 = 15;
+const int W_COL_2 = 45;
+const int W_COL_3 = 15;
 
 void prompt(char text[])
 {
@@ -147,7 +150,7 @@ void printUnitConsumed(int units)
     printf("%d\n", units);
 }
 
-void printFixedCharges(double load, int months, char *toc)
+double calculateAndPrintFixedCharges(double load, int months, char *toc)
 {
     int fixed_charge;
 
@@ -199,7 +202,138 @@ void printFixedCharges(double load, int months, char *toc)
         "Fixed Charges : %.0lf x %d x %d", load, fixed_charge, months);
 
     prompt(prompt_text);
-    printf("%.0lf\n", load * fixed_charge * months);
+
+    double charges = load * fixed_charge * months;
+    printf("%.0lf\n", charges);
+
+    return charges;
+}
+
+double calculateAndPrintEnergyRow(int units, double rate, int months)
+{
+    double amount = units * rate * months;
+    printf(
+        "%-*d\t@Rs.%7.2lfper unit\t%-*.0lf\n",
+        W_COL_1, units,
+        rate,
+        W_COL_3, amount);
+
+    return amount;
+}
+
+int calculateAndPrintEnergyCharges(double load, int months, char *toc, int units)
+{
+    double total_charges = 0.0;
+
+    printf("Energy charges: \n\n");
+    printf("%-*s%-*s%-*s\n", W_COL_1, "Units", W_COL_2, "Rate (Rs)", W_COL_3, "Amount (Rs)");
+
+    if (strcmp(toc, "D") == 0)
+    {
+        if (units <= 200)
+        {
+            total_charges += calculateAndPrintEnergyRow(units, 3.0, months);
+        }
+        else if (units <= 400)
+        {
+            total_charges += calculateAndPrintEnergyRow(200, 3.0, months);
+            total_charges += calculateAndPrintEnergyRow(units - 200, 4.5, months);
+        }
+        else if (units <= 800)
+        {
+            total_charges += calculateAndPrintEnergyRow(200, 3.0, months);
+            total_charges += calculateAndPrintEnergyRow(200, 4.5, months);
+            total_charges += calculateAndPrintEnergyRow(units - 400, 6.5, months);
+        }
+        else if (units <= 1200)
+        {
+            total_charges += calculateAndPrintEnergyRow(200, 3.0, months);
+            total_charges += calculateAndPrintEnergyRow(200, 4.5, months);
+            total_charges += calculateAndPrintEnergyRow(400, 6.5, months);
+            total_charges += calculateAndPrintEnergyRow(units - 800, 7.0, months);
+        }
+        else
+        {
+            total_charges += calculateAndPrintEnergyRow(200, 3.0, months);
+            total_charges += calculateAndPrintEnergyRow(200, 4.5, months);
+            total_charges += calculateAndPrintEnergyRow(400, 6.5, months);
+            total_charges += calculateAndPrintEnergyRow(400, 7.0, months);
+            total_charges += calculateAndPrintEnergyRow(units - 1200, 8.0, months);
+        }
+    }
+    else if (strcmp(toc, "ND") == 0)
+    {
+        if (load <= 3)
+        {
+            total_charges += calculateAndPrintEnergyRow(units, 6.0, months);
+        }
+        else
+        {
+            total_charges += calculateAndPrintEnergyRow(units, 8.5, months);
+        }
+    }
+    else if (strcmp(toc, "I") == 0)
+    {
+        total_charges += calculateAndPrintEnergyRow(units, 7.75, months);
+    }
+    else if (strcmp(toc, "A") == 0)
+    {
+        total_charges += calculateAndPrintEnergyRow(units, 1.5, months);
+    }
+    else
+    {
+        printf("\n\n\nIllegal value for type of connection. Exiting...\n");
+        exit(1);
+    }
+
+    printDivider('=', W_COL_1 + W_COL_2 + W_COL_3);
+    printf("Total: %*.2lf\n", W_COL_1 + W_COL_2 + W_COL_3 - 7, total_charges);
+
+    printf("\n");
+    prompt("Energy charges: ");
+    printf("%.2lf", total_charges);
+
+    return total_charges;
+}
+
+double calculateAndPrintSurchargeAmount(double energy_charges)
+{
+    double surcharge = energy_charges * 0.16;
+    prompt("Surcharge Amount @ 16%%");
+    printf("%.2lf\n", surcharge);
+
+    return surcharge;
+}
+
+void printNetCurrentDemand(double fixed, double energy, double surcharge)
+{
+    prompt("Net Current Demand");
+    printf("%.2lf\n", fixed + surcharge + energy);
+}
+
+double calculateAndPrintSubsidy(double total, char *toc, int units, int months)
+{
+    double subsidy = 0.0;
+    if (strcmp(toc, "D") == 0)
+    {
+        if (units <= 200)
+        {
+            subsidy = total;
+        }
+        else if (units <= 400)
+        {
+            subsidy = 800.0 * months;
+            if (subsidy > total)
+            {
+                subsidy = total;
+            }
+        }
+    }
+
+    prompt("Subsidy");
+    printf("- %.0lf\n", subsidy);
+
+    return subsidy;
 }
 
 int main()
@@ -225,5 +359,21 @@ int main()
 
     printf("\n");
 
-    printFixedCharges(load, months, type_of_conn);
+    double fixed_charges = calculateAndPrintFixedCharges(load, months, type_of_conn);
+
+    printf("\n");
+
+    double energy_charges = calculateAndPrintEnergyCharges(load, months, type_of_conn, units);
+
+    printf("\n");
+
+    double surcharge = calculateAndPrintSurchargeAmount(energy_charges);
+    printNetCurrentDemand(fixed_charges, energy_charges, surcharge);
+
+    double subsidy = calculateAndPrintSubsidy(fixed_charges + energy_charges + surcharge, type_of_conn, units, months);
+
+    printDivider('=', LINE_LENGTH);
+    prompt("Net Amount Payable By the Customer");
+    printf("%.2lf\n", fixed_charges + energy_charges + surcharge - subsidy);
+    printDivider('=', LINE_LENGTH);
 }
