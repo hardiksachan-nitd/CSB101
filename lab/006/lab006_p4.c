@@ -1,3 +1,6 @@
+// to input two integer numbers and display the sum of even numbers
+// between these two input numbers.
+
 #include <stdio.h>
 
 int main()

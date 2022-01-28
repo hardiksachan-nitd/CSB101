@@ -1,5 +1,7 @@
+// Design a calculator which takes input as a choice for operation 
+// to perform on them
+
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {

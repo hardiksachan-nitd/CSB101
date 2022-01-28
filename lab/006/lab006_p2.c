@@ -1,3 +1,5 @@
+// to display first 10 number in its natural and reverse order. (using for)
+
 #include <stdio.h>
 
 int main(){

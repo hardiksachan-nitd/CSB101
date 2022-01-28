@@ -1,3 +1,5 @@
+// to display the largest of five number using ternary operator
+
 #include <stdio.h>
 #include <limits.h>
 

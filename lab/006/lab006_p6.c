@@ -1,3 +1,5 @@
+// to display Fibonacci series of last term up to 300
+
 #include <stdio.h>
 
 int main() {

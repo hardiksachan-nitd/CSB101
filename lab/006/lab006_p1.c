@@ -1,3 +1,5 @@
+// to print the following pattern n times using while loop
+
 #include <stdio.h>
 
 int main()
