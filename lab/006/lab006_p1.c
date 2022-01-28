@@ -1,13 +1,15 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int n;
     printf("Enter a number: ");
     scanf("%d", &n);
 
-    for (int i = 1; i <= n; i++)
+    int i = 1;
+    while (i <= n)
     {
         printf("Count %d: \"Welcome to NIT Delhi !!\n", i);
+        i++;
     }
-    
 }
