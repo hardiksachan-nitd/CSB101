@@ -39,8 +39,6 @@ void displayBinary(int n) {
     case '7':
       printf("111");
       break;
-    default:
-      return;
     }
     i++;
   }
@@ -49,11 +47,14 @@ void displayBinary(int n) {
 }
 
 int main() {
-  int n;
-  printf("Enter a number: ");
-  scanf("%d", &n);
+  // reroute stdin to lab007_p1_input.txt
+  // freopen("lab007_p1_input.txt", "r", stdin);
 
-  printf("\n\n");
+  // reroute stdout to lab007_p1_output.txt
+  // freopen("lab007_p1_output.txt", "a+", stdout);
+
+  int n;
+  scanf("%d", &n);
 
   displayOctal(n);
   displayHex(n);
