@@ -1,0 +1,10 @@
+Inside main scope, before calling any function:
+	a: 5		b: 4
+Inside call-by-value scope:
+	a: 4		b: 5
+Inside main scope, after calling by value function:
+	a: 5		b: 4
+Inside call-by-reference scope:
+	a: 4		b: 5
+Inside main scope, after calling by reference function:
+	a: 4		b: 5
