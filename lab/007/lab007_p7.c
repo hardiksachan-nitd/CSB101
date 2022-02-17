@@ -3,15 +3,17 @@
 #include <stdio.h>
 
 int pow_r(int n, int r, int ans) {
-  if (r == 0) return ans;
-  return pow_r(n, r-1, ans * n);
+  if (r == 0)
+    return ans;
+  return pow_r(n, r - 1, ans * n);
 }
 
 int pow_nr(int n, int r) {
-  int result =1;
-  for (int i = 1; i <= n; i++) {
-    result *= i;  
+  int result = 1;
+  for (int i = 1; i <= r; i++) {
+    result *= n;
   }
+  return result;
 }
 
 double power(int n, int r) {

@@ -1,3 +1,5 @@
+// to find sum of digits and reverse of a number
+
 #include <stdio.h>
 
 int number;
