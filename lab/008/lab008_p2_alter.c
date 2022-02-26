@@ -6,8 +6,7 @@ int main() {
   int arr[7][4];
 
   for (int i = 0; i < 7; i++) {
-    scanf("%d/%*s %d %*s", &arr[i][0]);
-    scanf("%*s %d %*s", &arr[i][1]);
+    scanf("%d/%*s %*s %d %*s", &arr[i][0], &arr[i][1]);
     scanf("%*s %*s %d %*s", &arr[i][2]);
     scanf("%*s %*s %d %*s", &arr[i][3]);
   }
@@ -22,7 +21,8 @@ int main() {
     recoveredSum += arr[i][2];
     deceasedSum += arr[i][3];
 
-    printf("%d/01/2021\t%d\t\t%d\t\t%d\n",arr[i][0], arr[i][1], arr[i][2], arr[i][3]);
+    printf("%d/01/2021\t%d\t\t%d\t\t%d\n", arr[i][0], arr[i][1], arr[i][2],
+           arr[i][3]);
   }
   printf("%80s\n", "");
   printf("Sum\t\t%d\t\t%d\t\t%d\n", hospitalisedSum, recoveredSum, deceasedSum);

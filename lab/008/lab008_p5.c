@@ -15,9 +15,9 @@ int cityToIdx(char city) {
     return 2;
   case 'B':
     return 3;
-    // default:
-    // printf("Illegal State Exception. %c", city);
-    // exit(-1);
+    default:
+    printf("Illegal State Exception. %c", city);
+    exit(-1);
   }
 }
 
