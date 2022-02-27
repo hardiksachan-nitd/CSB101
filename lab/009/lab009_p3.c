@@ -23,5 +23,7 @@ int main() {
     i++;
   }
 
+  chars -= words;
+
   printf("Character: %d\nWords: %d\nLines: %d\n", chars, words, lines);
 }
