@@ -1,5 +1,6 @@
-// Write a program to store and print the roll no, name , age, height and marks (out of 10) in
-// subject CSB101 of a student using structures
+/* Write a program to store and print the roll no, name , age, height and marks (out of 10) in
+ * subject CSB101 of a student using structures
+ */
 
 #include <stdio.h>
 #define STR_LEN 20
@@ -19,7 +20,7 @@ int main() {
     printf("Enter the roll no: ");
     scanf("%d", &s.roll);
     printf("Enter the name: ");
-    scanf("%s", s.name);
+    fgets(s.name, STR_LEN, stdin);
     printf("Enter the age: ");
     scanf("%d", &s.age);
     printf("Enter the height: ");
