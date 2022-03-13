@@ -49,17 +49,6 @@ void loadTickets(struct ticket *tickets)
         tickets[i].departure_date = readDate();
         fgets(tickets[i].coach, STR_LEN, stdin);
         scanf("%d\n", &tickets[i].seat_no);
-
-        printf("Ticket %d details:\n", i + 1);
-        printf("Owner: %s", tickets[i].owner);
-        printf("Train: %s", tickets[i].train);
-        printf("Source: %s", tickets[i].source);
-        printf("Destination: %s", tickets[i].destination);
-        printf("Departure date: ");
-        printDate(tickets[i].departure_date);
-        printf("\nCoach: %s", tickets[i].coach);
-        printf("Seat no: %d\n", tickets[i].seat_no);
-
     }
     printf("Tickets initialized.\n\n\n");
 }
